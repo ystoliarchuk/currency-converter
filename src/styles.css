@@ -1,0 +1,16 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.container {
+    max-width: 1000px;
+    margin: 100px auto ;
+}
+
+.currency-wrapper {
+    display: flex; 
+    justify-content: center;
+
+}
+
+.form-field{
+    margin: 0 20px;
+}

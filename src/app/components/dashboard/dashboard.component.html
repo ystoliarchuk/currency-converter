@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="currency-wrapper">
+    <form [formGroup]="currencyForm">
+      <mat-form-field class="form-field" (input)="currencyAmountFrom()">
+        <input matInput placeholder="Amount from" type="number" formControlName="amountFrom">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Currency from</mat-label>
+        <mat-select (selectionChange)="currencyChangedFrom($event)" formControlName="currencyFrom">
+          <mat-option *ngFor="let currency of currencies" [value]="currency">
+            {{currency.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button (mousedown)="swapCurrencies()">
+        <i class="material-icons">
+          swap_horiz
+        </i>
+      </button>
+      <mat-form-field class="form-field">
+        <mat-label>Currency to</mat-label>
+        <mat-select (selectionChange)="currencyChangedTo($event)" formControlName="currencyTo">
+          <mat-option *ngFor="let currency of currencies" [value]="currency">
+            {{currency.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Amount to" [value]="amountTo | number: '1.2-2'">
+      </mat-form-field>
+    </form>
+  </div>
+
+  <app-chart [currencyFrom]="currencyFromName" [currencyTo]="currencyToName"></app-chart>
+
+</div>
